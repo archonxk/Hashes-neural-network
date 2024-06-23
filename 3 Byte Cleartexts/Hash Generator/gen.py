@@ -28,12 +28,14 @@ for i in range(0 , 16777216):
         print(f"Error with {bit_array}")
 
     full_hash = hashlib.sha256(full_str.encode()).hexdigest()
+    full_hash = "{0:08b}".format(int(full_hash, 16)) 
 
     hash_pair = {"hash":full_hash,
                 "cleartext":full_str,
                 "clearbits":string_of_bits}
 
     main_storage_arr.append(hash_pair)
+
     
 
     if len(main_storage_arr) == 20000:
